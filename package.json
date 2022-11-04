@@ -10,13 +10,13 @@
     "turbo": "next dev --turbo"
   },
   "dependencies": {
-    "@next/font": "^13.0.0",
-    "@types/node": "18.11.8",
-    "@types/react": "18.0.24",
+    "@next/font": "^13.0.2",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
-    "eslint-config-next": "^13.0.0",
+    "eslint-config-next": "^13.0.2",
     "gsap": "^3.11.3",
-    "next": "13.0.1-canary.3",
+    "next": "13.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "recoil": "^0.7.6",
@@ -24,8 +24,8 @@
     "typescript": "4.8.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^2.2.0",
     "@testing-library/react": "^13.4.0",
-    "vitest": "^0.24.4"
+    "@vitejs/plugin-react": "^2.2.0",
+    "vitest": "^0.24.5"
   }
 }
