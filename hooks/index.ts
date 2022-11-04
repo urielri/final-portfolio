@@ -1,5 +1,5 @@
 
-import {theme as themeAtom, displayTheme as displayThemeAtom} from '@/atoms'
+import {theme as themeAtom, displayTheme as displayThemeAtom} from '@/atoms/index'
 import {useRecoilValue, useSetRecoilState} from 'recoil'
 export const useTheme = () => {
     const update = useSetRecoilState(themeAtom);
