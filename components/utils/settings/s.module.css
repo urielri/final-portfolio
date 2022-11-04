@@ -1,0 +1,71 @@
+.settings {
+  position: relative;
+  background-color: var(--white);
+  border-radius: calc(var(--size) * 2);
+  border: 1px solid var(--white-c);
+  min-height: 48px;
+  height: auto;
+  padding: calc(var(--size) * 2) calc(var(--size) * 4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+.settings .title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  column-gap: calc(var(--size) * 2);
+  cursor: pointer;
+  height: 22px;
+}
+.settings .title > span {
+  display: flex;
+  column-gap: calc(var(--size) * 2);
+  align-items: center;
+  color: var(--black-c);
+  font-size: calc(var(--size) * 2.4);
+}
+.settings .title > .arrow {
+  display: grid;
+  place-items: center;
+}
+.settings .title > .arrow > svg > path {
+  stroke: var(--black-c);
+}
+.settings .title > span > svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s 0.1s ease-in-out;
+}
+.settings .title:hover > span > svg {
+  transform: rotate(90deg);
+  transition-delay: 0s;
+}
+.settings .title > span > svg > path {
+  stroke: var(--black-c);
+}
+.settings .list {
+  display: none;
+  opacity: 0;
+  width: 100%;
+  padding-top: calc(var(--size) * 2);
+}
+
+.list > ul {
+    width: 100%;
+    height: 100%;
+}
+.list > ul > li { 
+    display: flex;
+    width : 100%;
+    align-items: center;
+    min-height: 48px;
+    border-bottom: 1px solid var(--grey);
+    color:var(--black-c);
+    font-size: calc(var(--size) * 2.4);
+}
+.list > ul > li:last-child {
+    border-bottom: none;
+}

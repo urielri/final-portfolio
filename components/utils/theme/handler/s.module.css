@@ -1,0 +1,94 @@
+.t {
+  width: 140px;
+  height: 36px;
+}
+.theme {
+  display: flex;
+  width: fit-content;
+  width: 100%;
+  max-width: 140px;
+  justify-content: center;
+  flex-direction: column-reverse;
+  position: relative;
+  z-index: 4;
+}
+.theme .selected {
+  border-radius: 12px;
+
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 6px 24px;
+  border: 1px solid var(--grey-b);
+  cursor: pointer;
+  background-color: var(--white);
+  justify-content: space-between;
+}
+.theme .selected > span {
+  color: var(--black-c);
+  font-size: calc(var(--size) * 2);
+}
+.theme svg {
+  width: 16px;
+  height: 16px;
+}
+.theme svg path {
+  fill: var(--black-c);
+}
+.theme .selected > .value {
+  font-weight: 600;
+}
+.theme .options {
+  display: flex;
+  z-index: -4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  background-color: var(--white);
+
+  border: 1px solid var(--grey-b);
+  width: 100%;
+  padding: 12px 12px 0;
+  border-radius: 12px 12px 0 0;
+}
+.theme .options > ul {
+  display: none;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  row-gap: 6px;
+}
+.theme .options ul > li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 6px;
+  height: 24px;
+  transition: 0.2s ease-in-out;
+  transition-property: padding-right, background-color;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0 12px;
+}
+.theme .options ul > li > span {
+  color: var(--black-c);
+  font-size: calc(var(--size) * 2);
+}
+
+
+.theme .options ul > li:hover {
+  padding-right: 16px;
+  background-color: var(--white-b);
+}
+.empty::before {
+  content: "";
+  position: fixed;
+  background: transparent;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}

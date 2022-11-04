@@ -1,0 +1,39 @@
+.footer {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 86px;
+  outline: none;
+  padding: 24px 64px;
+}
+.footer .content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content > span {
+  font-size: calc(var(--size) * 2);
+  color: var(--black-c);
+}
+.content > .about {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+}
+.content > .about > span {
+  color: var(--black-c);
+  font-size: calc(var(--size) * 2);
+}
+.content > .about > ul {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+}
+.content > .about > ul > li > svg {
+  width: 18px;
+  height: 18px;
+}
+.content > .about > ul > li > svg path {
+  fill: var(--black-c);
+}
