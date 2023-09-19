@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Content from '@/pages/home'
+import Content from 'p/home'
 const Page: FC = () => {
   return (
    <Content/>

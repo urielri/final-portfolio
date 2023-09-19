@@ -1,9 +1,78 @@
+import { theme as themeAtom, displayTheme as displayThemeAtom } from "../state";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { Theme, _DisplayTheme, _ReturnTheme } from "t/index";
+import { useEffect, useReducer } from "react";
 
-import {theme as themeAtom, displayTheme as displayThemeAtom} from '@/atoms/index'
-import {useRecoilValue, useSetRecoilState} from 'recoil'
-export const useTheme = () => {
-    const update = useSetRecoilState(themeAtom);
-    const display = useRecoilValue(displayThemeAtom);
-    const state = useRecoilValue(themeAtom)
-    return {update, display, state,  }
+export const useTheme = (): _ReturnTheme => {
+  const theme = useRecoilValue(themeAtom);
+  const display = useRecoilValue(displayThemeAtom);
+  const set = useSetRecoilState(themeAtom);
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    console.log(saved);
+    if (saved !== null) {
+      theme !== saved && set(saved as Theme);
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  return { theme, set, display };
+};
+// un hook que permite de forma optima y segura el control y estado de un formulario y sus respectivos inputs
+// recibe como parametro, valor inicial, un callback opcional
+// Retorna un setter del estado instanciado por el valor inicial, una funcion reset, que actualiza el estado a su valor inicial, y el estaod del formulario
+// Recibe un valor arbitrario del tipo a ser implementado
+interface _Form<T> {
+  values: Values<T>;
+  set: (args: any) => void;
+  reset: () => void;
 }
+enum Actions {
+  SET = "SET",
+  RESET = "RESET",
+}
+interface Action<T> {
+  type: Actions;
+  payload: Partial<Values<T>>;
+}
+function reducer<T>(state: Values<T>, action: Action<T>) {
+  switch (action.type) {
+    case "SET":
+      return { ...state, ...action.payload };
+    case "RESET":
+      return { ...action.payload };
+    default:
+      return { ...state };
+  }
+}
+type _Set<T> = {
+  [K in keyof T]: K;
+};
+type Values<T> = T & {
+  submit: boolean;
+};
+export const useForm = <T>(
+  values: T,
+  callback?: Function,
+  interceptor?: Function
+): _Form<T> => {
+  const [state, dispatch] = useReducer(reducer<T>, {
+    submit: false,
+    ...values,
+  });
+  const set = (obj: Partial<T>): void => {
+    dispatch({ type: Actions.SET, payload: { ...obj } });
+    interceptor
+      ? dispatch({ type: Actions.SET, payload: interceptor(obj) })
+      : dispatch({ type: Actions.SET, payload: { ...obj } });
+
+    callback && callback(obj);
+  };
+  const reset = () => {
+    dispatch({ type: Actions.RESET, payload: { ...values } });
+  };
+  return { values: state as Values<T>, set, reset };
+};

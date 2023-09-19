@@ -1,9 +1,13 @@
-import {FC} from 'react'
-
+"use client";
+import { FC, useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { theme as themeAtom } from "st/index";
 const Theme: FC = () => {
-    return (
-
-        <></>
-    )
-}
-export default Theme
+  const [t, setT] = useRecoilState(themeAtom);
+  useEffect(() => {
+    const doc = document.firstElementChild;
+    doc?.setAttribute("color-scheme", t);
+  }, [t]);
+  return null;
+};
+export default Theme;

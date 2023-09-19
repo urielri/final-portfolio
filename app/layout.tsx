@@ -1,19 +1,17 @@
 import { FC } from "react";
-//import { Open_Sans } from "@next/font/google";
-import { Layout } from "@/interface/index";
-import "@/styles/globals.css";
-import Footer from '@/utils/footer'
+import { Oxygen } from "next/font/google";
+import { Layout } from "t/index";
+import "s/globals.css";
 import Context from "./context";
-//const openSans = Open_Sans();
+import Theme from "u/theme";
+const openSans = Oxygen({ weight: ["300", "400", "700"], subsets: ["latin"] });
 const Layout: FC<Layout> = ({ children }) => {
   return (
-    <html lang="es">
+    <html lang="es" className={openSans.className}>
       <body>
         <Context>
-          <div className="root">
-            {children}
-            <Footer/>
-          </div>
+          <Theme />
+          <div className="root">{children}</div>
         </Context>
       </body>
     </html>

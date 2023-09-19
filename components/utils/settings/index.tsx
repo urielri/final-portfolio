@@ -1,5 +1,5 @@
 "use client";
-import { Arrow, Settings as SettingsIcon } from "@/icons/interactive";
+import { Arrow, Settings as SettingsIcon } from "i/interactive";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import s from "./s.module.css";
@@ -30,6 +30,9 @@ const Settings: FC = () => {
       };
     }
   }, [open]);
+  const openModal =() => {
+    
+  }
   return (
     <div className={s.settings} ref={ref}>
       <div className={s.title} onClick={() => openMenu()}>
@@ -44,6 +47,10 @@ const Settings: FC = () => {
         <ul>
           <Option>Fuente</Option>
           <Option>Color</Option>
+          <Option>
+            Fondo
+            <div onClick={()=> openModal()}>ss</div>
+          </Option>
         </ul>
       </div>
     </div>

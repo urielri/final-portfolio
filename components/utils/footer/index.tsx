@@ -1,9 +1,9 @@
 "use client";
 
-import { Github } from "@/icons/social";
-import { FC} from "react";
+import { Github } from "i/social";
+import { FC } from "react";
 import s from "./s.module.css";
-import Theme from '../theme/handler'
+import Handler from 'u/theme/handler'
 const Footer: FC = () => {
   return (
     <footer className={s.footer}>
@@ -16,7 +16,7 @@ const Footer: FC = () => {
             </li>
           </ul>
         </div>
-        <Theme />
+          <Handler />
       </div>
     </footer>
   );

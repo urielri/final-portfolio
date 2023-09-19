@@ -2,34 +2,18 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/pages/*": [
-        "components/pages/*"
-      ],
-      "@/utils/*": [
-        "components/utils/*"
-      ],
-      "@/interface/*": [
-        "interface/*"
-      ],
-      "@/styles/*": [
-        "styles/*"
-      ],
-      "@/icons/*": [
-        "icons/*"
-      ],
-      "@/atoms/*": [
-        "atoms/*"
-      ]
+      "-/*": ["components/*"],
+      "p/*": ["components/pages/*"],
+      "u/*": ["components/utils/*"],
+      "t/*": ["types/*"],
+      "s/*": ["styles/*"],
+      "i/*": ["icons/*"],
+      "st/*": ["state/*"],
+      "test/*": ["test/*"],
+      "#/*": ["./*"]
     },
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -53,13 +37,6 @@
       "name": "next"
     }
   ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

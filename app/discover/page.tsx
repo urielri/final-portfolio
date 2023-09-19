@@ -1,4 +1,4 @@
-import Discover from "@/components/pages/discover";
+import Discover from "p/discover";
 import { FC } from "react";
 
 const Page: FC = () => {

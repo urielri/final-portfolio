@@ -1,9 +1,13 @@
+"use client";
 import { FC, useRef, useEffect, useState } from "react";
 import s from "./s.module.css";
 import gsap from "gsap";
-import { Contrast, Moon, Sun } from "@/icons/interactive";
-const Theme: FC = () => {
+import { Contrast, Moon, Sun } from "icons/interactive";
+import { useTheme } from "hooks";
+import { Theme } from "t/index";
+const Handler: FC = () => {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
   const ref: any = useRef(null);
   const q = gsap.utils.selector(ref);
   useEffect(() => {
@@ -24,26 +28,31 @@ const Theme: FC = () => {
         .to(q("#options"), { duration: 0.2, height: 0, top: 0 });
     }
   }, [open]);
-  const action = () => {
+  const openList = () => {
     !open && setOpen(true);
+  };
+  const action = (val: Theme) => {
+    theme.set(val);
   };
   return (
     <div className={s.t} ref={ref}>
       {open && <div className={s.empty} onClick={() => setOpen(false)}></div>}
-      <div className={s.theme} onClick={() => action()}>
+      <div className={s.theme} onClick={() => openList()}>
         <div className={s.selected}>
-          <span className={s.value}>Claro</span>
-          <Sun/>
+          <span className={s.value} data-testid="display">
+            {theme.display.label}
+          </span>
+          {getIcon(theme.theme)}
         </div>
         <div className={s.options} id="options">
           <ul id="list">
-            <li>
+            <li onClick={() => action("system")} data-testid="changeToSystem">
               <span>Sistema</span> <Contrast />
             </li>
-            <li>
+            <li onClick={() => action("dark")}>
               <span>Oscuro</span> <Moon />
             </li>
-            <li>
+            <li onClick={() => action("light")}>
               <span>Claro</span> <Sun />
             </li>
           </ul>
@@ -52,4 +61,19 @@ const Theme: FC = () => {
     </div>
   );
 };
-export default Theme
+function getIcon(v: Theme) {
+  switch (v) {
+    case "light":
+      return <Sun />;
+      break;
+    case "dark":
+      return <Moon />;
+      break;
+    case "system":
+      return <Contrast />;
+      break;
+    default:
+      return <Sun />;
+  }
+}
+export default Handler;

@@ -1,0 +1,67 @@
+.cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.cards .c {
+  width: 240px;
+  height: 118px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--size) * 2);
+  padding: calc(var(--size) * 4);
+  border-radius: calc(var(--size) * 4);
+  backdrop-filter: blur(var(--blur));
+  background: var(--transparency);
+  box-shadow: var(--shadow);
+}
+.cards .c .social {
+  display: flex;
+  column-gap: calc(var(--size) * 2);
+  align-items: center;
+}
+.cards .c .social .icon {
+  display: grid;
+  place-items: center;
+}
+.cards .c .social .icon svg {
+  width: 18px;
+  height: 18px;
+}
+.cards .c .social .icon svg path {
+  fill: var(--black);
+}
+.cards .c .social span {
+  color: var(--text);
+  font-size: 16px;
+}
+.cards .c .info {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  column-gap: calc(var(--size) * 2);
+}
+.cards .c .user {
+  display: flex;
+  flex-direction: column;
+}
+.cards .c .user span {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 300;
+}
+.avatar {
+  position: relative;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-out;
+  background: var(--transparency);
+}
+.avatar:hover {
+  border-color: var(--grey);
+}

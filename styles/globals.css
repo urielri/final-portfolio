@@ -2,29 +2,53 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: var(--white-b);
 }
 html {
-  --hue : hsla(212, 80%, 62%, 1);
-
+  --hue: hsla(212, 80%, 62%, 1);
   --black: hsla(212, 2%, 18%, 1);
   --black-b: hsla(212, 2%, 28%, 1);
   --black-c: hsla(212, 2%, 48%, 1);
-
   --grey: hsla(212, 4%, 95%, 1);
   --grey-b: hsla(212, 4%, 94%, 1);
   --grey-c: hsla(212, 6%, 92%, 1);
-
   --white: hsla(212, 1%, 99%, 1);
   --white-b: hsla(212, 1%, 98%, 1);
   --white-c: hsla(212, 1%, 97%, 1);
-
+  --gradient-b: linear-gradient(
+      269.97deg,
+      rgba(66, 12, 222, 0) 30.48%,
+      rgba(66, 12, 222, 0.463059) 53.12%,
+      #420cde 66.66%,
+      #312c3e 85.25%
+    ),
+    linear-gradient(269.83deg, #fd8f8f 14.94%, #e65b95 24.66%, #6e34eb 51.74%),
+    #ececec;
+  --gradiend-c: radial-gradient(
+      83.25% 298.07% at 83.25% 100%,
+      #f970d3 0%,
+      #e83594 24.11%,
+      #c210ef 45.86%,
+      #420cde 69.03%,
+      #312c3e 100%
+    ),
+    #ececec;
   --gradient: linear-gradient(99.93deg, #7377d7 8.26%, #ff018a 92.77%), #ececec;
-  --shadow: -2px 6px 16px rgba(76, 73, 73, 0.2);
-  --size: 0.375em;
-
+  --shadow: 0px 2px 22px rgba(21, 28, 45, 0.12);
+  --shadow-b: -2px 6px 16px rgba(76, 73, 73, 0.2);
+  --size: 6px;
+  --blur: 30px;
+  --space: calc(var(--size) * 4);
+  --transparency: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.02)
+    ),
+    linear-gradient(
+      129.27deg,
+      rgba(250, 250, 250, 0.36) 6.3%,
+      rgba(252, 252, 252, 0.36) 94.43%
+    );
 }
 a {
   color: var(--black-b);
@@ -32,7 +56,6 @@ a {
 }
 .root {
   display: grid;
-  grid-template-rows: 1fr 86px;
   width: 100%;
   height: 100vh;
   outline: none;
@@ -61,25 +84,36 @@ p {
   font-size: 1em;
   line-height: 1.5em;
 }
-ul, ol {
+ul,
+ol {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 h1 {
-  font-size: 2.25em;
-  line-height: 2.625em ;
+  font-size: 36px;
+  line-height: 42px;
 }
 h2 {
-  font-size: 1.625em;
-  line-height: 2.25em ;
+  font-size: 28px;
+  line-height: 36px;
 }
 h3 {
-  font-size: 1.5em;
-  line-height: 1.8em ;
+  font-size: 24px;
+  line-height: 30px;
 }
 h4 {
-  font-size: 1.125em;
-  line-height: 1.5em ;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 24px;
+}
+span,
+p {
+  font-size: 14px;
+  line-height: 18px;
 }
