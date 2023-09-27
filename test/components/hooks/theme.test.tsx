@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { renderRecoilHook, act } from "react-recoil-hooks-testing-library";
-import { theme as themeAtom, displayTheme as displayThemeAtom } from "st/index";
+import { theme as themeAtom, displayTheme as displayThemeAtom } from "state/index";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { _ReturnTheme } from "t/index";
+import { _ReturnTheme } from "types/index";
 export const useTheme = (): _ReturnTheme => {
   const theme = useRecoilValue(themeAtom);
   const display = useRecoilValue(displayThemeAtom);

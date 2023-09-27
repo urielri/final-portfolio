@@ -11,7 +11,7 @@ import {
 import { theme as themeAtom } from "../../../../state";
 import { FC } from "react";
 import { useEffect } from "react";
-import { Theme as ThemeType } from "t/index";
+import { Theme as ThemeType } from "types/index";
 import { Storage } from "happy-dom";
 const IntersectionObserverMock = vi.fn(() => ({
   disconnect: vi.fn(),

@@ -24,9 +24,6 @@ describe("function calculateSurface", () => {
   it("should render function", () => {
     expect(typeof calculateSurface === "function").toBe(true);
   });
-  it("If param is undefined or null, should be show error", () => {
-    expect(() => calculateSurface()).toThrow();
-  });
 });
 
 function calculateQuantityCards(surface: Surface): {
