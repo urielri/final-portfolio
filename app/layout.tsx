@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Oxygen } from "next/font/google";
-import { Layout } from "t/index";
-import "s/globals.css";
+import { Layout } from "types/index";
+import "styles/globals.css";
 import Context from "./context";
-import Theme from "u/theme";
+import Theme from "utils/theme";
 const openSans = Oxygen({ weight: ["300", "400", "700"], subsets: ["latin"] });
 const Layout: FC<Layout> = ({ children }) => {
   return (

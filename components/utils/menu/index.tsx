@@ -1,8 +1,8 @@
 "use client";
 import { FC, useEffect, useState } from "react";
 import s from "./s.module.css";
-import { Logo } from "i/interactive";
-import { Case, Fire, Home, Star } from "i/interactive/status";
+import { Logo } from "icons/interactive";
+import { Case, Fire, Home, Star } from "icons/interactive/status";
 import { useRouter, usePathname } from "next/navigation";
 import gsap from "gsap";
 const Menu: FC = () => {

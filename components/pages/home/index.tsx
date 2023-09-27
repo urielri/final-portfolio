@@ -2,8 +2,8 @@
 import { FC, ReactNode, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import s from "./s.module.css";
-import { lora } from "-/fonts";
-import { F } from "i/objects";
+import { lora } from "components/fonts";
+import { F } from "icons/objects";
 import Cards from "./cards";
 const Content: FC = () => {
   return (

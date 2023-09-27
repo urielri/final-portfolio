@@ -1,5 +1,5 @@
 "use client";
-import { Arrow, Settings as SettingsIcon } from "i/interactive";
+import { Arrow, Settings as SettingsIcon } from "icons/interactive";
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import s from "./s.module.css";

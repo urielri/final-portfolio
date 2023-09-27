@@ -1,9 +1,9 @@
-import { Layout } from "t/index";
+import { Layout } from "types/index";
 import { FC } from "react";
-import s from "p/discover/s.module.css";
-import Menu from "u/menu";
-import Settings from "u/settings";
-import Background from "u/background";
+import s from "pages/discover/s.module.css";
+import Menu from "utils/menu";
+import Settings from "utils/settings";
+import Background from "utils/background";
 const Layout: FC<Layout> = ({ children }) => {
   return (
     <>

@@ -7,7 +7,7 @@
       "utils/*": ["components/utils/*"],
       "types/*": ["types/*"],
       "styles/*": ["styles/*"],
-      "i/*": ["icons/*"],
+      "icons/*": ["icons/*"],
       "state/*": ["state/*"],
       "test/*": ["test/*"],
       "#/*": ["./*"]

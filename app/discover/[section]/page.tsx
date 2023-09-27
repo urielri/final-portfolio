@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Content from '#/components/pages/discover/section'
+import Content from 'pages/discover/section'
 export async function generateStaticParams  ()  {
   const sections = ["projects", "aboutme", "ideas"];
   return sections.map((el: string) => ({

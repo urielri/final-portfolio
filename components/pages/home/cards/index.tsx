@@ -1,4 +1,4 @@
-import { Dribbble } from "i/social";
+import { Dribbble } from "icons/social";
 import { FC, ReactNode, Ref, Suspense, use, useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
