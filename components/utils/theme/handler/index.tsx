@@ -4,7 +4,7 @@ import s from "./s.module.css";
 import gsap from "gsap";
 import { Contrast, Moon, Sun } from "icons/interactive";
 import { useTheme } from "hooks";
-import { Theme } from "t/index";
+import { Theme } from "types";
 const Handler: FC = () => {
   const [open, setOpen] = useState(false);
   const theme = useTheme();

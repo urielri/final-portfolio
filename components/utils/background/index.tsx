@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FC } from "react";
 import s from "./s.module.css";
 import { useRecoilValue } from "recoil";
-import { background as backgroundAtom } from "st/index";
+import { background as backgroundAtom } from "state";
 const Background: FC = () => {
   const { color, img, filter } = useRecoilValue(backgroundAtom);
   return (

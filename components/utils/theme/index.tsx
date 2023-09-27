@@ -1,7 +1,7 @@
 "use client";
 import { FC, useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { theme as themeAtom } from "st/index";
+import { theme as themeAtom } from "state";
 const Theme: FC = () => {
   const [t, setT] = useRecoilState(themeAtom);
   useEffect(() => {

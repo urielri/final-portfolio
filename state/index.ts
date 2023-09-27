@@ -1,5 +1,5 @@
 import { atom, DefaultValue, selector } from "recoil";
-import { Theme, _DisplayTheme } from "t/index";
+import { Theme, _DisplayTheme } from "types/index";
 
 const themes = {
   light: { label: "Claro" },

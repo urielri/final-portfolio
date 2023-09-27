@@ -1,10 +1,18 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen, fireEvent } from "@testing-library/react";
-import { RecoilRoot } from "recoil";
-import Theme from "../../../../components/utils/theme";
+import { RecoilRoot, useRecoilState } from "recoil";
 import { theme as themeAtom } from "../../../../state";
 import Handler from "../../../../components/utils/theme/handler";
-import {Observer} from '../theme/component.test'
+import {Observer} from './component.test'
+import { useEffect, FC } from "react";
+const Theme: FC = () => {
+  const [t, setT] = useRecoilState(themeAtom);
+  useEffect(() => {
+    const doc = document.firstElementChild;
+    doc?.setAttribute("color-scheme", t);
+  }, [t]);
+  return null;
+};
 describe("Handler theme component", () => {
   afterEach(cleanup);
   it("should render", () => {
