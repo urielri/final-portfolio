@@ -1,6 +1,6 @@
 import { theme as themeAtom, displayTheme as displayThemeAtom } from "../state";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { Theme, _DisplayTheme, _ReturnTheme } from "t/index";
+import { Theme, _DisplayTheme, _ReturnTheme } from "types/index";
 import { useEffect, useReducer } from "react";
 
 export const useTheme = (): _ReturnTheme => {
@@ -25,46 +25,49 @@ export const useTheme = (): _ReturnTheme => {
 // recibe como parametro, valor inicial, un callback opcional
 // Retorna un setter del estado instanciado por el valor inicial, una funcion reset, que actualiza el estado a su valor inicial, y el estaod del formulario
 // Recibe un valor arbitrario del tipo a ser implementado
-interface _Form<T> {
+type Form<T> = {
   values: Values<T>;
   set: (args: any) => void;
   reset: () => void;
-}
+};
 enum Actions {
   SET = "SET",
   RESET = "RESET",
 }
-interface Action<T> {
+type Action<T> = {
   type: Actions;
-  payload: Partial<Values<T>>;
-}
+  payload: Partial<Values<T>> | T;
+};
 function reducer<T>(state: Values<T>, action: Action<T>) {
-  switch (action.type) {
-    case "SET":
-      return { ...state, ...action.payload };
-    case "RESET":
-      return { ...action.payload };
+  const { type, payload } = action;
+  switch (type) {
+    case Actions.SET:
+      return { ...state, ...payload };
+    case Actions.RESET:
+      return { ...payload } as Values<T>;
     default:
-      return { ...state };
+      return state;
   }
 }
+/*
 type _Set<T> = {
   [K in keyof T]: K;
 };
-type Values<T> = T & {
+*/
+type Values<T = {}> = T & {
   submit: boolean;
 };
 export const useForm = <T>(
   values: T,
   callback?: Function,
   interceptor?: Function
-): _Form<T> => {
+): Form<T> => {
   const [state, dispatch] = useReducer(reducer<T>, {
-    submit: false,
     ...values,
+    submit: false,
   });
-  const set = (obj: Partial<T>): void => {
-    dispatch({ type: Actions.SET, payload: { ...obj } });
+  const set = (obj: Partial<Values<T>>): void => {
+    // dispatch({ type: Actions.SET, payload: { ...obj } });
     interceptor
       ? dispatch({ type: Actions.SET, payload: interceptor(obj) })
       : dispatch({ type: Actions.SET, payload: { ...obj } });
