@@ -11,7 +11,7 @@ const Layout: FC<Layout> = ({ children }) => {
       <body>
         <Context>
           <Theme />
-          <div className="root">{children}</div>
+          {children}
         </Context>
       </body>
     </html>

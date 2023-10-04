@@ -7,13 +7,15 @@ import { F } from "icons/objects";
 import Cards from "./cards";
 const Content: FC = () => {
   return (
-    <div className={s.home}>
-      <Background />
-      <div className={s.content}>
-        <Start />
-        <Suspense>
-          <Cards />
-        </Suspense>
+    <div className={s.root}>
+      <div className={s.home}>
+        <Background />
+        <div className={s.content}>
+          <Start />
+          <Suspense>
+            <Cards />
+          </Suspense>
+        </div>
       </div>
     </div>
   );

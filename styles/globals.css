@@ -1,10 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
 html,
 body {
   padding: 0;
   margin: 0;
   background: var(--white-b);
+  overflow-x: hidden;
 }
-html {
+:root {
   --hue: hsla(212, 80%, 62%, 1);
   --black: hsla(212, 2%, 18%, 1);
   --black-b: hsla(212, 2%, 28%, 1);
@@ -38,6 +45,7 @@ html {
   --shadow-b: -2px 6px 16px rgba(76, 73, 73, 0.2);
   --size: 6px;
   --blur: 30px;
+  --max-w: 1440px;
   --space: calc(var(--size) * 4);
   --transparency: linear-gradient(
       0deg,
@@ -54,20 +62,13 @@ a {
   color: var(--black-b);
   text-decoration: none;
 }
-.root {
-  display: grid;
-  width: 100%;
-  height: 100vh;
-  outline: none;
-}
+
 .gradient {
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-* {
-  box-sizing: border-box;
-}
+
 h1,
 h2,
 h3,
@@ -86,9 +87,7 @@ p {
 }
 ul,
 ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+ all: unset;
 }
 
 h1 {

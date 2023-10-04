@@ -1,6 +1,5 @@
-import { FC } from "react";
 import Content from 'pages/home'
-const Page: FC = () => {
+function Page() {
   return (
    <Content/>
   );
