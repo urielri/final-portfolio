@@ -67,7 +67,6 @@ export const useForm = <T>(
     submit: false,
   });
   const set = (obj: Partial<Values<T>>): void => {
-    // dispatch({ type: Actions.SET, payload: { ...obj } });
     interceptor
       ? dispatch({ type: Actions.SET, payload: interceptor(obj) })
       : dispatch({ type: Actions.SET, payload: { ...obj } });
